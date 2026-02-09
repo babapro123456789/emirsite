@@ -1,153 +1,43 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>emirinyenisitesi.com</title>
-  <style>
-    html { scroll-behavior: smooth; }
-    body {
-      margin:0;
-      font-family: Arial, sans-serif;
-      background:#f4f4f4;
-    }
-    header{
-      background:#ff6000;
-      color:white;
-      padding:15px 20px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-    header h1{margin:0;font-size:22px;}
-    nav a{
-      color:white;
-      margin-left:15px;
-      text-decoration:none;
-      font-weight:bold;
-    }
-    .search{
-      padding:10px;
-      background:white;
-      text-align:center;
-    }
-    .search input{
-      width:60%;
-      padding:10px;
-      border-radius:8px;
-      border:1px solid #ccc;
-    }
-    .products{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-      gap:20px;
-      padding:20px;
-    }
-    .card{
-      background:white;
-      border-radius:12px;
-      box-shadow:0 2px 8px rgba(0,0,0,0.1);
-      padding:15px;
-      text-align:center;
-      transition:0.2s;
-    }
-    .card:hover{transform:scale(1.03);}    
-    .card img{
-      width:100%;
-      border-radius:10px;
-    }
-    .price{
-      color:#ff6000;
-      font-weight:bold;
-      margin:8px 0;
-    }
-    button{
-      background:#ff6000;
-      color:white;
-      border:none;
-      padding:10px 15px;
-      border-radius:8px;
-      cursor:pointer;
-    }
-    footer{
-      background:#222;
-      color:white;
-      text-align:center;
-      padding:15px;
-      margin-top:20px;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Emir'in Klavye Sitesi</title>
+<style>
+body{font-family:Arial;margin:0;background:#f5f5f5}
+header{background:#ff6000;color:white;padding:15px;font-size:22px;font-weight:bold}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:15px;padding:15px}
+.card{background:white;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,0.15);overflow:hidden}
+.card img{width:100%;height:160px;object-fit:cover}
+.card h3{margin:10px;font-size:16px}
+.card p{margin:10px;color:#555}
+</style>
 </head>
 <body>
-  <header>
-    <h1>emirinyenisitesi.com</h1>
-    <nav>
-      <a href="#">Ana Sayfa</a>
-      <a href="#">Ürünler</a>
-      <a href="#">İletişim</a>
-    </nav>
-  </header>
-
-  <div class="search">
-    <input type="text" placeholder="Ürün ara..." />
-  </div>
-
-  <section class="products" id="productList">
-  </section>
-
-  <script>
-    const container = document.getElementById('productList');
-    const searchInput = document.querySelector('.search input');
-
-    // Güvenilir farklı klavye resimleri listesi
-    const images = [
-      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400",
-      "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400",
-      "https://images.unsplash.com/photo-1595225476474-87563907a212?w=400",
-      "https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=400",
-      "https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?w=400",
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400",
-      "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400",
-      "https://images.unsplash.com/photo-1587202372775-9899c5b0b6c3?w=400",
-      "https://images.unsplash.com/photo-1577375729152-4c8b5fcda381?w=400",
-      "https://images.unsplash.com/photo-1555617117-08fda2b4f2f2?w=400"
-    ];
-
-    const products=[];
-    for(let i=1;i<=100;i++){
-      products.push({
-        name:`Mekanik Klavye ${i}`,
-        price:500+i,
-        img:images[i % images.length]
-      });
-    }
-
-    function render(list){
-      container.innerHTML='';
-      list.forEach(p=>{
-        const card=document.createElement('div');
-        card.className='card';
-        card.innerHTML=`
-          <img src="${p.img}" />
-          <h3>${p.name}</h3>
-          <div class="price">₺${p.price}</div>
-          <button>Sepete Ekle</button>
-        `;
-        container.appendChild(card);
-      });
-    }
-
-    render(products);
-
-    searchInput.addEventListener('input', ()=>{
-      const val=searchInput.value.toLowerCase();
-      const filtered=products.filter(p=>p.name.toLowerCase().includes(val));
-      render(filtered);
-    });
-  </script>
-
-  <footer>
-    <p>© 2026 Emir Shop — Ödev Projesi</p>
-  </footer>
+<header>Emir'in Klavye Mağazası</header>
+<div class="grid">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3" />
+<h3>Mekanik Klavye RGB</h3>
+<p>1.299 TL</p>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1593642634443-44adaa06623a" />
+<h3>Oyuncu Mekanik Klavye</h3>
+<p>999 TL</p>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8" />
+<h3>Laptop Klavyesi</h3>
+<p>—</p>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc" />
+<h3>Profesyonel Mekanik</h3>
+<p>1.499 TL</p>
+</div>
+</div>
 </body>
 </html>
+
